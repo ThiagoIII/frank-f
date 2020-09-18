@@ -8,7 +8,7 @@ function App() {
 
   const client = contentful.createClient({
     space: process.env.CONTENTFUL_SPACE,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    accessToken: "NpMJ0MOh4004AaR_yI8uLVRXKGR7ojxMmELnhYmWxek"
   });
 
   useEffect(() => {
