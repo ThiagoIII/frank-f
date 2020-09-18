@@ -7,7 +7,7 @@ function App() {
   const [data, setItems] = useState(null)
 
   const client = contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE,
+    space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   });
 
