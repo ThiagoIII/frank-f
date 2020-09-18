@@ -7,8 +7,8 @@ function App() {
   const [data, setItems] = useState(null)
 
   const client = contentful.createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE,
-    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN
+    space: process.env.CONTENTFUL_SPACE,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
   });
 
   useEffect(() => {
