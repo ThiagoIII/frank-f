@@ -1,47 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import ToggleButton from './components/ToggleButton'
+import client from './services/contentfulClient'
+import handleTargets from './helpers/handleTargets'
+import {Helmet} from "react-helmet";
 import './App.css';
-const contentful  = require('contentful')
-
 
 function App() {
   const [data, setItems] = useState(null)
 
-  const client = contentful.createClient({
-    space: process.env.REACT_APP_CONTENTFUL_SPACE_ID,
-    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN
-  });
-
   useEffect(() => {
-    client
-    .getAssets()
-    .then(data => setItems(data))
-  },[client])
+    data == null 
+    ? client
+      .getAssets()
+      .then(data => setItems(data))
+    :  handleTargets(data) 
+  },[data])
 
-  
   return (
     <>
-    <a id="githubLink" href="https://github.com/ThiagoIII?tab=repositories" rel="noreferrer noopener" target="_blank">Developed by ThiagoIII, click here to check my github repo</a>
-    <a id="jumpBackToTop" href="#githubLink">Top</a>
-    <header>
-      <h1>Frank Frazetta</h1>
-      <h2>The legend!</h2>
-    </header>
-
+      <Helmet>
+          <title>FFrazetta - The Legend</title>     
+          <meta name="description" content="Frank F - the Myth!" data-react-helmet="true" />
+      </Helmet>
+      <a id="githubLink" href="https://github.com/ThiagoIII?tab=repositories" rel="noreferrer noopener" target="_blank">Developed by ThiagoIII, click here to check my github repo</a>
+      <a id="jumpBackToTop" href="#githubLink">Top</a>
+      <ToggleButton />
+      <header>
+        <h1>Frank Frazetta</h1>
+        <h2>The legend!</h2>
+      </header>
       <ul>
         {
-          data != null ? data.items.map(item =>
-          ( <li>
-              <picture>
-                <source type="image/webp" sizes="(max-width: 600px) 90vw, (max-width: 1000px) 45vw, 30vw"  srcSet={`${item.fields.file.url}?fm=webp&w=300&fit=pad 300w,
-                                ${item.fields.file.url}?fm=webp&w=500&fit=pad 500w`} />
-                <source sizes="(max-width: 600px) 90vw, (max-width: 1000px) 45vw, 30vw" srcSet={`
-                ${item.fields.file.url}?w=300&fit=pad 300w, 
-                ${item.fields.file.url}?w=500&fit=pad 500w`} />
-                <img sizes="(max-width: 600px) 90vw, (max-width: 1000px) 45vw, 30vw" src={item.fields.file.url} alt="img" />
-              </picture>
-            </li>)
-          ) 
-          : null
+          data != null 
+          ? data.items.map( (_,index) => {
+            return <li key={index} data-index={index} className="lazyload"></li>
+          })
+          : <li>...loading images</li> 
         }
       </ul>
       <footer>
