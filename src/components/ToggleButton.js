@@ -24,9 +24,6 @@ const ToggleButton = () => {
                 : <GiSunSpear id="themeButtonIconLight"/>
               }
             </button>
-           
-          
-    
   } 
 
   export default ToggleButton
