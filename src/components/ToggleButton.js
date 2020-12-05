@@ -6,8 +6,8 @@ const ToggleButton = () => {
     
     const handleToggleTheme = () => {
       let toggleButton = document.getElementById('themeButton')
-      toggleButton.classList.toggle('toggle')
-      if( getComputedStyle(document.documentElement).getPropertyValue('--bodyBgColor') === "white"){
+      toggleButton.classList.toggle('toggle') 
+      if( getComputedStyle(document.body).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
         document.documentElement.style.setProperty('--bodyBgColor', 'black') //I'm doing this way just to show CSS variables manipulation, in a client's app I'd do with a class and the toggle method as I did with the button
         setToggle('night')
       } else {
