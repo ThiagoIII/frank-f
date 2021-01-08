@@ -20,10 +20,13 @@ const ToggleButton = () => {
         }
     }
     React.useEffect(() => {
-        const userPrefersDark =
+        if (
             window.matchMedia &&
             window.matchMedia('(prefers-color-scheme: dark)').matches
-        userPrefersDark ? setToggle('night') : setToggle('day')
+        ) {
+            toggleButton.classList.toggle('toggle')
+            setToggle('night')
+        }
     }, [])
 
     return (
