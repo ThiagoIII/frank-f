@@ -90,17 +90,6 @@ h1 {
     animation: Animation 3s linear infinite;
 }
 
-@media screen and (min-width: 400px) {
-    h1 {
-        font-size: 5rem;
-    }
-}
-@media screen and (min-width: 800px) {
-    h1 {
-        font-size: 10rem;
-    }
-}
-
 @-webkit-keyframes Animation {
     0% {
         background-position: 10% -100%;
@@ -127,7 +116,7 @@ h1 {
 }
 
 h2 {
-    font-size: 5rem;
+    font-size: 3rem;
     font-family: 'Ranga', cursive;
     color: red;
     width: 100%;
@@ -164,6 +153,25 @@ footer a,
     letter-spacing: 0.1rem;
 }
 
+@media screen and (min-width: 400px) {
+    h1 {
+        font-size: 5rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+    }
+}
+@media screen and (min-width: 800px) {
+    h1 {
+        font-size: 10rem;
+    }
+
+    h2 {
+        font-size: 5rem;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --bodyBgColor: black;
@@ -177,9 +185,8 @@ footer a,
         background-color: white;
         color: black;
     }
-
     #themeButton.toggle {
-        background-color: #000;
+        background-color: black;
         color: white;
     }
 }

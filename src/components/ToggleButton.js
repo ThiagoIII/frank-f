@@ -24,7 +24,6 @@ const ToggleButton = () => {
             window.matchMedia &&
             window.matchMedia('(prefers-color-scheme: dark)').matches
         ) {
-            toggleButton.classList.toggle('toggle')
             setToggle('night')
         }
     }, [])
