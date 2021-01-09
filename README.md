@@ -1,3 +1,14 @@
+Hello!
+I did this project to learn a bit more about the intersection observer that I couldn't make work in the Chimenia project, but now its working as I wanted to!
+
+Also to make a REST API call instead of a GraphQL to Contentful and check their image treatment.
+
+So very very simple and small, didn't bother caching or any real code optimization, so all in all went ok, I will probably keep improving the code in time.
+
+Feel free to fork it and make a PR.
+
+Thanks for checking it out.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
